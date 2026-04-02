@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+
+# Java / Jakarta EE
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+*.md
+projet-data/
