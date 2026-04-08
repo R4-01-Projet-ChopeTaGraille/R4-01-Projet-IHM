@@ -5,6 +5,17 @@
  */
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/api.php';
+
+// Etape 16 : Suppression d'un menu
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'supprimer') {
+    $menuId = intval($_POST['menuId'] ?? 0);
+    if ($menuId > 0) {
+        appelApi(API_MENUS . '/menus/' . $menuId, 'DELETE');
+    }
+    header('Location: /pages/menus.php');
+    exit;
+}
+
 require_once __DIR__ . '/../includes/header.php';
 
 // Appel API
@@ -40,6 +51,11 @@ $menus = $resultat['donnees'];
                     <td><?= number_format($menu['prixTotal'], 2, ',', ' ') ?> &euro;</td>
                     <td>
                         <a href="/pages/menu-detail.php?id=<?= $menu['id'] ?>" class="btn btn-secondaire">Voir</a>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="action" value="supprimer">
+                            <input type="hidden" name="menuId" value="<?= $menu['id'] ?>">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Supprimer ce menu ?')">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
