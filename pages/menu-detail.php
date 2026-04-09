@@ -184,13 +184,13 @@ require_once __DIR__ . '/../includes/header.php';
         <button type="submit" class="btn btn-principal">Ajouter</button>
     </form>
 
-<?php endif; ?>
-
     <!-- Bouton supprimer le menu -->
     <form method="POST" style="margin-top: 1.5rem;">
         <input type="hidden" name="action" value="supprimer">
         <button type="submit" class="btn btn-danger" onclick="return confirm('Supprimer ce menu ?')">Supprimer ce menu</button>
     </form>
+
+<?php endif; ?>
 
 <p><a href="/pages/menus.php">Retour a la liste des menus</a></p>
 

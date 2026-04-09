@@ -48,30 +48,3 @@ function appelApi(string $url, string $methode = 'GET', ?array $donnees = null):
         'donnees' => json_decode($reponse, true),
     ];
 }
-
-/**
- * Retourne un message d'erreur lisible selon le code HTTP.
- *
- * @param int    $code    Code HTTP retourne par l'API
- * @param string $contexte Description courte de l'operation (ex: "du plat", "de la commande")
- * @return string|null     Message d'erreur ou null si pas d'erreur
- */
-function messageErreurApi(int $code, string $contexte = ''): ?string
-{
-    switch ($code) {
-        case 0:
-            return 'Impossible de contacter le serveur. Verifiez que les APIs sont lancees.';
-        case 200:
-        case 201:
-        case 204:
-            return null;
-        case 400:
-            return 'Donnees invalides' . ($contexte ? ' ' . $contexte : '') . '.';
-        case 404:
-            return 'Ressource introuvable' . ($contexte ? ' ' . $contexte : '') . '.';
-        case 409:
-            return 'Conflit : cette ressource existe deja' . ($contexte ? ' ' . $contexte : '') . '.';
-        default:
-            return 'Erreur serveur (code ' . $code . ')' . ($contexte ? ' ' . $contexte : '') . '.';
-    }
-}

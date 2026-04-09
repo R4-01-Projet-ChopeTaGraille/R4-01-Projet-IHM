@@ -10,7 +10,7 @@
 // --- Mode developpement (JSON-Server) ---
 define('API_PLATS_UTILISATEURS', 'http://localhost:3003');
 define('API_MENUS',              'http://localhost:3004');
-define('API_COMMANDES',          'http://localhost:3006');
+define('API_COMMANDES',          'http://localhost:3005');
 
 // --- Mode production (Jakarta EE) ---
 // define('API_PLATS_UTILISATEURS', 'http://localhost:8080/plats-utilisateurs/api');
