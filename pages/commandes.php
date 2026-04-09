@@ -44,7 +44,7 @@ $commandes = $resultat['donnees'];
     <select id="abonneId" name="abonneId" onchange="this.form.submit()">
         <option value="">-- Tous les abonnes --</option>
         <?php foreach ($utilisateurs as $utilisateur): ?>
-            <option value="<?= $utilisateur['id'] ?>"
+            <option value="<?= intval($utilisateur['id']) ?>"
                 <?= ($abonneIdFiltre === intval($utilisateur['id'])) ? 'selected' : '' ?>>
                 <?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) ?>
             </option>
@@ -71,16 +71,16 @@ $commandes = $resultat['donnees'];
         <tbody>
             <?php foreach ($commandes as $commande): ?>
                 <tr>
-                    <td><?= $commande['id'] ?></td>
+                    <td><?= intval($commande['id']) ?></td>
                     <td><?= htmlspecialchars($commande['dateCommande']) ?></td>
                     <td><?= htmlspecialchars($commande['adresseLivraison']) ?></td>
                     <td><?= htmlspecialchars($commande['dateLivraison']) ?></td>
                     <td><?= number_format($commande['prixTotal'], 2, ',', ' ') ?> &euro;</td>
                     <td>
-                        <a href="/pages/commande-detail.php?id=<?= $commande['id'] ?>" class="btn btn-secondaire">Voir</a>
+                        <a href="/pages/commande-detail.php?id=<?= intval($commande['id']) ?>" class="btn btn-secondaire">Voir</a>
                         <form method="POST" style="display:inline;">
                             <input type="hidden" name="action" value="supprimer">
-                            <input type="hidden" name="commandeId" value="<?= $commande['id'] ?>">
+                            <input type="hidden" name="commandeId" value="<?= intval($commande['id']) ?>">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Annuler cette commande ?')">Annuler</button>
                         </form>
                     </td>

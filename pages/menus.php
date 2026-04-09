@@ -50,10 +50,10 @@ $menus = $resultat['donnees'];
                     <td><?= count($menu['plats']) ?></td>
                     <td><?= number_format($menu['prixTotal'], 2, ',', ' ') ?> &euro;</td>
                     <td>
-                        <a href="/pages/menu-detail.php?id=<?= $menu['id'] ?>" class="btn btn-secondaire">Voir</a>
+                        <a href="/pages/menu-detail.php?id=<?= intval($menu['id']) ?>" class="btn btn-secondaire">Voir</a>
                         <form method="POST" style="display:inline;">
                             <input type="hidden" name="action" value="supprimer">
-                            <input type="hidden" name="menuId" value="<?= $menu['id'] ?>">
+                            <input type="hidden" name="menuId" value="<?= intval($menu['id']) ?>">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Supprimer ce menu ?')">Supprimer</button>
                         </form>
                     </td>

@@ -58,7 +58,7 @@ require_once __DIR__ . '/../includes/header.php';
     <p class="msg-erreur">Commande introuvable.</p>
 <?php else: ?>
 
-    <h1>Commande n°<?= $commande['id'] ?></h1>
+    <h1>Commande n°<?= intval($commande['id']) ?></h1>
 
     <?php if ($msgSucces): ?>
         <p class="msg-succes"><?= htmlspecialchars($msgSucces) ?></p>
@@ -71,7 +71,7 @@ require_once __DIR__ . '/../includes/header.php';
         <tbody>
             <tr>
                 <th>Abonne</th>
-                <td>Abonne n°<?= $commande['abonneId'] ?></td>
+                <td>Abonne n°<?= intval($commande['abonneId']) ?></td>
             </tr>
             <tr>
                 <th>Date de commande</th>
@@ -110,7 +110,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php foreach ($commande['lignes'] as $ligne): ?>
                     <tr>
                         <td><?= htmlspecialchars($ligne['menuNom']) ?></td>
-                        <td><?= $ligne['quantite'] ?></td>
+                        <td><?= intval($ligne['quantite']) ?></td>
                         <td><?= number_format($ligne['prixUnitaire'], 2, ',', ' ') ?> &euro;</td>
                         <td><?= number_format($ligne['prixLigne'], 2, ',', ' ') ?> &euro;</td>
                     </tr>

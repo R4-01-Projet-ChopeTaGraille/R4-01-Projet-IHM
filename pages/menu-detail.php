@@ -109,7 +109,7 @@ require_once __DIR__ . '/../includes/header.php';
     <!-- Formulaire de renommage -->
     <form method="POST" class="formulaire" style="margin-bottom: 1.5rem;">
         <input type="hidden" name="action" value="renommer">
-        <input type="hidden" name="createurId" value="<?= $menu['createurId'] ?>">
+        <input type="hidden" name="createurId" value="<?= intval($menu['createurId']) ?>">
         <label for="nom">Renommer le menu</label>
         <input type="text" id="nom" name="nom" required
                value="<?= htmlspecialchars($menu['nom']) ?>">
@@ -158,7 +158,7 @@ require_once __DIR__ . '/../includes/header.php';
                         <td>
                             <form method="POST" style="display:inline;">
                                 <input type="hidden" name="action" value="retirer_plat">
-                                <input type="hidden" name="platId" value="<?= $plat['id'] ?>">
+                                <input type="hidden" name="platId" value="<?= intval($plat['id']) ?>">
                                 <button type="submit" class="btn btn-danger">Retirer</button>
                             </form>
                         </td>
@@ -176,7 +176,7 @@ require_once __DIR__ . '/../includes/header.php';
         <select id="platId" name="platId" required>
             <option value="">-- Choisir un plat --</option>
             <?php foreach ($platsDisponibles as $plat): ?>
-                <option value="<?= $plat['id'] ?>">
+                <option value="<?= intval($plat['id']) ?>">
                     <?= htmlspecialchars($plat['nom']) ?> (<?= number_format($plat['prix'], 2, ',', ' ') ?> &euro;)
                 </option>
             <?php endforeach; ?>

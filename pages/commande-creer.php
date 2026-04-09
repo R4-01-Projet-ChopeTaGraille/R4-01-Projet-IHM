@@ -82,7 +82,7 @@ require_once __DIR__ . '/../includes/header.php';
         <select id="abonneId" name="abonneId" required>
             <option value="">-- Choisir un abonne --</option>
             <?php foreach ($utilisateurs as $utilisateur): ?>
-                <option value="<?= $utilisateur['id'] ?>"
+                <option value="<?= intval($utilisateur['id']) ?>"
                     <?= (intval($_POST['abonneId'] ?? 0) === intval($utilisateur['id'])) ? 'selected' : '' ?>>
                     <?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) ?>
                 </option>
@@ -105,7 +105,7 @@ require_once __DIR__ . '/../includes/header.php';
                         <td><?= htmlspecialchars($menu['nom']) ?></td>
                         <td><?= number_format($menu['prixTotal'], 2, ',', ' ') ?> &euro;</td>
                         <td>
-                            <input type="number" name="quantite[<?= $menu['id'] ?>]" min="0"
+                            <input type="number" name="quantite[<?= intval($menu['id']) ?>]" min="0"
                                    value="<?= intval($_POST['quantite'][$menu['id']] ?? 0) ?>"
                                    style="width: 80px;">
                         </td>

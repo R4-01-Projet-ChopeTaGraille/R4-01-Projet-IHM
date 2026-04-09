@@ -58,8 +58,8 @@ require_once __DIR__ . '/../includes/header.php';
         <select id="createurId" name="createurId" required>
             <option value="">-- Choisir un abonne --</option>
             <?php foreach ($utilisateurs as $utilisateur): ?>
-                <option value="<?= $utilisateur['id'] ?>"
-                    <?= (intval($_POST['createurId'] ?? 0) === $utilisateur['id']) ? 'selected' : '' ?>>
+                <option value="<?= intval($utilisateur['id']) ?>"
+                    <?= (intval($_POST['createurId'] ?? 0) === intval($utilisateur['id'])) ? 'selected' : '' ?>>
                     <?= htmlspecialchars($utilisateur['prenom'] . ' ' . $utilisateur['nom']) ?>
                 </option>
             <?php endforeach; ?>
